@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Hugo Díaz - Paleta de colores oficial */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    /* Azul Navy - Hugo Díaz (Primary) */
+    --primary: 222 82% 33%; /* #1e3a8a */
+    --primary-foreground: 0 0% 100%;
+    
+    /* Azul Brillante (Secondary) */
+    --secondary: 217 91% 60%; /* #3b82f6 */
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Azul Claro - Hover (Accent) */
+    --accent: 213 94% 68%; /* #60a5fa */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Rojo Canon (para badges) */
+    --canon-red: 0 100% 40%; /* #CC0000 */
+    
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 222 82% 33%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  /* Estilos para formato de precio chileno */
+  .price {
+    @apply text-lg font-bold text-primary;
+  }
+  
+  .price-old {
+    @apply text-sm text-muted-foreground line-through;
+  }
+}
+
+@layer components {
+  /* Badge estilo Canon */
+  .canon-badge {
+    @apply inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded;
+    background-color: hsl(var(--canon-red));
+    color: white;
+  }
+  
+  /* Botón primario Hugo Díaz */
+  .btn-primary-hd {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
+  }
+  
+  /* Gradiente azul Hugo Díaz */
+  .gradient-hd {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+}
